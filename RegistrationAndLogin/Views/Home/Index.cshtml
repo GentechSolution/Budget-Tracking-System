@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Home_Page_Layout.cshtml";
+}
+<h2 style="justify-content: center">Home Page</h2>
+<br />
+<div class="jumbotron text-center">
+    Welcome @HttpContext.Current.User.Identity.Name
+</div>
+<h3 style="text-align:center"> Rivoningo's Budget Planner </h3>
+<br />
+<section id="introduction">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 style="text-align:center"> What is a budget?</h4>
+                <p>
+                    <b>Budgeting</b> is the process of creating a <b>plan to spend your money</b>. This spending plan is called a budget.
+                    Creating this spending plan allows you to determine in advance whether you will have enough money to do
+                    the things you need to do or would like to do. If you don't have enough money to do everything you would like to do,
+                    then you can use this planning process to prioritize your spending and focus your money on the things that are most important to you.
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <h4 style="text-align:center"> Why is a budget important? </h4>
+                <p>
+                    Since budgeting allows you to create a spending plan for your money, it ensures that you will always have enough money for the things
+                    you need and the things that are important to you. Following a budget or spending plan will also keep you out of debt or help you work
+                    your way out of debt if you are currently in debt.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<section id="information">
+    <div class="container">
+        <div id="budget-info" class="">
+            <h3>How to create a successful budget</h3>
+            <p>
+                A good budget also includes allocations for regular savings. In essence, a budget not only lays out a path for reaching a particular financial
+                destination but also acts as a flashlight to shine the way and ensure that you don’t wander off course. Without one, you’re more likely to find
+                yourself in the dark about your financial health and lost in the wilderness of debt and financial insecurity.
+            </p>
+            <p>
+                Is it any wonder then that more Americans are turning to budgeting in their search for financial bliss? And while a budget won’t be able to buy
+                you love, to paraphrase The Beatles, a side benefit might be to mitigate a common source of strife and strain in relationships: disagreements over money.
+            </p>
+        </div>
+        <br />
+        <hr />
+        <div id="accomodation-info">
+            <h3>Why buying a house is better than renting one.</h3>
+            <p>
+                One advantage is that the cost of your monthly repayments decrease with interest rate cuts, whereas a fixed rent remains the same. The interest rate cuts
+                that kicked off 2020 mean homeowners are saving money while renters could be paying inflated prices. If you’re a first-time home buyer, low interest rates
+                and high supply makes now a good time to get involved in the buyer’s market. So you see the advantage in home ownership but you’ve resigned yourself to the
+                rent trap? Well, home buying is a more realistic process than it’s been in a while. Supply outstrips demand, and banks are more willing to lend. This has
+                introduced options such as the 100% home loan, where you don’t have to pay a deposit.
+            </p>
+            <p>
+                Aside from that, three rate cuts in quick succession have reduced the prime interest rate to 7.25%, the lowest level since 1973. Home owners will find
+                themselves paying less per month on their bond repayments. For example, on a bond of, say, R1 000 000, your repayment amount will have dropped from R9 650
+                at the beginning of January, to R7 904 after the rate cut on 21 May 2020.
+            </p>
+        </div>
+        <div id="vehicle-expenses">
+            <h3>Choosing the right vehicle to buy</h3>
+            <p>
+                Any prospective buyer should visit car websites, and consult trade publications, to compile a list of possible purchases. Once you have done this, you will
+                be in a better position to understand what will, or won’t, work for you and your family. While buying a second-hand vehicle is a good option for many, buyers
+                need to be aware there are also pitfalls; there may be mechanical problems, body damage, replacement parts may be harder to source, and warranty benefits will
+                expire sooner. It’s important buyers conduct thorough research, compare prices, and not rush into the first good deal they come across.
+            </p>
+        </div>
+    </div>
+</section>
+
+<br />
+<hr />
+<h3>Click here to log out </h3>
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+    }
+}

@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "AccomodationExpenses";
+    Layout = "~/Views/Shared/Home_Page_Layout.cshtml";
+}
+<div class="jumbotron text-center">
+    <h2>Monthly Expenses Calculation</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Renting a apartment/house</h3>
+            <form>
+                <div class="form-group">
+                    <label for="grossincome">Rent Price</label>
+                    <input type="text" class="form-control" id="rent_price" aria-describedby="grossInput" placeholder="Enter renting price">
+                </div>
+                <div class="form-group">
+                    <label for="grossincome">Lease Period</label>
+                    <input type="text" class="form-control" id="lease_period" aria-describedby="grossInput" placeholder="Enter lease period(number of months)">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <h3> Purchasing of a house</h3>
+            <form>
+                <div class="form-group">
+                    <label for="grossincome">House Price</label>
+                    <input type="text" class="form-control" id="houseprice" aria-describedby="grossInput" placeholder="Enter gross income">
+                </div>
+                <div class="form-group">
+                    <label for="grossincome">Deposit</label>
+                    <input type="text" class="form-control" id="deposit" aria-describedby="grossInput" placeholder="Enter Gross after tax deductions">
+                </div>
+                <div class="form-group">
+                    <label for="grossincome">Utilities</label>
+                    <input type="text" class="form-control" id="utilities" aria-describedby="grossInput" placeholder="Enter Utilities">
+                </div>
+                <div class="form-group">
+                    <label for="grossincome">Travel Cost</label>
+                    <input type="text" class="form-control" id="travelcost" aria-describedby="grossInput" placeholder="Enter Travel Cost">
+                </div>
+                <div class="form-group">
+                    <label for="grossincome">Phone Bill</label>
+                    <input type="text" class="form-control" id="phonebill" aria-describedby="grossInput" placeholder="Enter Phone Bill">
+                </div>
+                <div class="form-group">
+                    <label for="grossincome">Other Expenses</label>
+                    <input type="text" class="form-control" id="otherexpenses" aria-describedby="grossInput" placeholder="Enter Other Expenses Total">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="" style="justify-content:center">
+    
+</div>
+

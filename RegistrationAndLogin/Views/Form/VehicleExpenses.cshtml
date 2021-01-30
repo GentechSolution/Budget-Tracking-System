@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Vehicle Expenses";
+    Layout = "~/Views/Shared/Home_Page_Layout.cshtml";
+}
+<div class="jumbotron text-center">
+    <h2>Vehicle Expenses Calculation</h2>
+</div>
+<div class="" style="justify-content:center">
+    <form style="justify-content: center">
+        <div class="form-group">
+            <label for="grossincome">Model</label>
+            <input type="text" class="form-control" id="model" aria-describedby="grossInput" placeholder="Enter model">
+        </div>
+        <div class="form-group">
+            <label for="grossincome">Year of make</label>
+            <input type="text" class="form-control" id="yearMake" aria-describedby="grossInput" placeholder="Enter car year of make">
+        </div>
+        <div class="form-group">
+            <label for="grossincome">Total Deposit</label>
+            <input type="text" class="form-control" id="totalDeposit" aria-describedby="grossInput" placeholder="Total Deposit">
+        </div>
+        <div class="form-group">
+            <label for="grossincome">Interest rate</label>
+            <input type="text" class="form-control" id="interestRate" aria-describedby="grossInput" placeholder="Enter Interest Rate">
+        </div>
+        <div class="form-group">
+            <label for="grossincome">Insurance</label>
+            <input type="text" class="form-control" id="Insurance" aria-describedby="grossInput" placeholder="Enter Insureance Premium (per month)">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+

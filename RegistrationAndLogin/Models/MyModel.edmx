@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccomodationExpenses_House">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Deposit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Interest_Rate" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pay_Period" Type="int" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Monthly_Instalments" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccomodationExpenses_Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Lease_Period" Type="int" Nullable="false" />
+          <Property Name="Total_Rent" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monthly_Expenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gross_Income" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Monthly_Tax" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Utilities" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Travel_Cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Phone_Bill" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Other_Expenses" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Net_Income" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailID" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
+          <Property Name="ActivationCode" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VehicleExpenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Total_Deposit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Interest_Rate" Type="int" Nullable="false" />
+          <Property Name="Insurance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MyDatabaseModelStoreContainer">
+          <EntitySet Name="AccomodationExpenses_House" EntityType="Self.AccomodationExpenses_House" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccomodationExpenses_Rent" EntityType="Self.AccomodationExpenses_Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monthly_Expenses" EntityType="Self.Monthly_Expenses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehicleExpenses" EntityType="Self.VehicleExpenses" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsEmailVerified" Type="Boolean" Nullable="false" />
+          <Property Name="ActivationCode" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MyDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="AccomodationExpenses_House" EntityType="MyDatabaseModel.AccomodationExpenses_House" />
+          <EntitySet Name="AccomodationExpenses_Rent" EntityType="MyDatabaseModel.AccomodationExpenses_Rent" />
+          <EntitySet Name="Monthly_Expenses" EntityType="MyDatabaseModel.Monthly_Expenses" />
+          <EntitySet Name="VehicleExpenses" EntityType="MyDatabaseModel.VehicleExpens" />
+        </EntityContainer>
+        <EntityType Name="AccomodationExpenses_House">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Deposit" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Interest_Rate" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Pay_Period" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Monthly_Instalments" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="AccomodationExpenses_Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Lease_Period" Type="Int32" Nullable="false" />
+          <Property Name="Total_Rent" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Monthly_Expenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gross_Income" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Monthly_Tax" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Utilities" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Travel_Cost" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Phone_Bill" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Other_Expenses" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Net_Income" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="VehicleExpens">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Make" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Total_Deposit" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Interest_Rate" Type="Int32" Nullable="false" />
+          <Property Name="Insurance" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyDatabaseModelStoreContainer" CdmEntityContainer="MyDatabaseEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MyDatabaseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccomodationExpenses_House">
+            <EntityTypeMapping TypeName="MyDatabaseModel.AccomodationExpenses_House">
+              <MappingFragment StoreEntitySet="AccomodationExpenses_House">
+                <ScalarProperty Name="Monthly_Instalments" ColumnName="Monthly_Instalments" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Pay_Period" ColumnName="Pay_Period" />
+                <ScalarProperty Name="Interest_Rate" ColumnName="Interest_Rate" />
+                <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccomodationExpenses_Rent">
+            <EntityTypeMapping TypeName="MyDatabaseModel.AccomodationExpenses_Rent">
+              <MappingFragment StoreEntitySet="AccomodationExpenses_Rent">
+                <ScalarProperty Name="Total_Rent" ColumnName="Total_Rent" />
+                <ScalarProperty Name="Lease_Period" ColumnName="Lease_Period" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monthly_Expenses">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Monthly_Expenses">
+              <MappingFragment StoreEntitySet="Monthly_Expenses">
+                <ScalarProperty Name="Net_Income" ColumnName="Net_Income" />
+                <ScalarProperty Name="Other_Expenses" ColumnName="Other_Expenses" />
+                <ScalarProperty Name="Phone_Bill" ColumnName="Phone_Bill" />
+                <ScalarProperty Name="Travel_Cost" ColumnName="Travel_Cost" />
+                <ScalarProperty Name="Utilities" ColumnName="Utilities" />
+                <ScalarProperty Name="Monthly_Tax" ColumnName="Monthly_Tax" />
+                <ScalarProperty Name="Gross_Income" ColumnName="Gross_Income" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehicleExpenses">
+            <EntityTypeMapping TypeName="MyDatabaseModel.VehicleExpens">
+              <MappingFragment StoreEntitySet="VehicleExpenses">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="Interest_Rate" ColumnName="Interest_Rate" />
+                <ScalarProperty Name="Total_Deposit" ColumnName="Total_Deposit" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
